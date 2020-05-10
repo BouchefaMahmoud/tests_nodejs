@@ -1,4 +1,4 @@
-var request  = require( 'supertest'), app = require('../server/server')
+var request  = require( 'supertest'), app = require('../../server/server')
 
 describe("homepage", ()=>{
 
