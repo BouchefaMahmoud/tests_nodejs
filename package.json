@@ -9,6 +9,7 @@
   "author": "Mahmoud",
   "license": "ISC",
   "devDependencies": {
+    "body-parser": "^1.19.0",
     "chai": "^3.5.0",
     "chai-http": "^1.0.0",
     "mocha": "^7.1.2",

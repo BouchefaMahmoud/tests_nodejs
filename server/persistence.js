@@ -1,29 +1,32 @@
-var BDD = require('BDD/data')
+var BDD = require('./BDD/data')
 
+persistence = {
+    
+    isExistsData : function (keyData) {
+        return Object.keys(BDD).indexOf(keyData) > -1 
+    },
 
-function insertData(keyData, data) {
-   if( ! isExistsData(keyData) ) {
-       BDD[keyData] = data 
-        return 'data saved successfully'
-   }
+    insertData : function (keyData, data, callback) {
 
-   return 'data already exists'
-}   
+                    if( ! this.isExistsData(keyData) ) {
+                        BDD[keyData] = data 
+                        return callback('data saved successfully')
+                    }
+                    return callback('data already exists')
+                },
 
+    getData : function ( keyData, callback ){
+                    if(this.isExistsData(keyData))
+                        return BDD[keyData]
+                    return callback('data dosn\'t exists')    
+                },
 
-function isExistsData(keyData) {
-    return BDD.keys(obj).indexOf(keyData) > -1 
+    getAllData :function (callback){
+                return callback(BDD.values)
+                }
+    
 }
 
-function getData( keyData ){
-    if(isExistsData(keyData))
-        return BDD[keyData]
-    return 'data dosn\'t exists'    
-}
 
-function getAllData(){
-    return BDD.values
-}
-
-
+module.exports = persistence
 
