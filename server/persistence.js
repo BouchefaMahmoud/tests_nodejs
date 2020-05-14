@@ -23,7 +23,14 @@ persistence = {
 
     getAllData :function (callback){
                 return callback(BDD.values)
-                }
+                },
+    deleteData: (keyData, callback)=>{
+        if(persistence.isExistsData(keyData)){
+            BDD.remove(keyData)
+            return callback('data has been deleted')
+        }
+        return callback('cannot delete data because it does\'t exists')
+    }  
     
 }
 
