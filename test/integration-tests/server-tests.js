@@ -15,8 +15,15 @@ describe("Integration tests : ", ()=>{
                 request(app).get("/get-data","{keyData:"+key+"}").
                 expect('value.xls',done)
             })
-    
-        
-      
         })    
+
+        it("get all data",(done)=>{
+            key =  'simple-key'
+            value = 'value.xls'
+            persistence.insertData(key, value , response => {
+                request(app).get("/get-all-data").
+                expect('value.xls',done)
+            })
+        })    
+
 })
