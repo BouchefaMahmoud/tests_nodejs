@@ -8,6 +8,7 @@ app.use(bodyParser.json())
 
 
 app.post('/insert-data', (req, res)=>{
+    console.log(req.query)
     persistence.insertData(req.query.keyData, req.query.data, (response)=>{
       if(response === 'data saved successfully'){
         res.status(200).end()
@@ -31,9 +32,11 @@ app.get('/get-data', (req, res)=>{
 })
 
 app.get('/get-all-data', (req, res)=>{
-  persistence.getData( (response)=>{
+  persistence.getAllDatas( (response)=>{
+    console.log(response)
     res.send(response)
-  } )
+
+  })
 })
 
 

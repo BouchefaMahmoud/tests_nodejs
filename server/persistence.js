@@ -23,11 +23,11 @@ var BDD = require('./BDD/data')
                     },
     
         getAllDatas : (callback)=>{
-                    return callback(BDD.values)
+                    return callback(Object.values(BDD))
                     },
         deleteData: (keyData, callback)=>{
             if(persistence.isExistsData(keyData)){
-                BDD.remove(keyData)
+                delete BDD[keyData]
                 return callback('data has been deleted')
             }
             return callback('cannot delete data because it does\'t exists')

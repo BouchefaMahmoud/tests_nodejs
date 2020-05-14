@@ -1,6 +1,6 @@
 
 module.exports = {
-    checkFormatFile : function (value) {
-        return value.contains('.docx') || value.contains('.pdf');
+    checkFormatFile :  (value)=> {
+        return value.includes('.xls') || value.includes('.pdf');
     }
 }
