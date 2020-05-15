@@ -17,6 +17,12 @@ describe('unit tests ', ()=>{
         assert.ok(! utils.checkFormatFile('value.docx') )
 
     })
+    it('set inexisting format expect fail ', ()=>{
+
+        assert.ok(! utils.checkFormatFile('value') )
+
+    })
+
 
 }) 
 

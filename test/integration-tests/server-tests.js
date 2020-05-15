@@ -39,4 +39,8 @@ describe("Integration tests : ", ()=>{
             })
         })       
    
-})
+});
+
+app.on('exit', function(code) {
+    return console.log(`About to exit with code ${code}`);
+});
